@@ -581,9 +581,7 @@
             $(document)
               .on('mousedown.daterangepicker', this._outsideClickProxy)
               // also explicitly play nice with Bootstrap dropdowns, which stopPropagation when clicking them
-              .on('click.daterangepicker', '[data-toggle=dropdown]', this._outsideClickProxy)
-              // and also close when focus changes to outside the picker (eg. tabbing between controls)
-              .on('focusin.daterangepicker', this._outsideClickProxy);
+              .on('click.daterangepicker', '[data-toggle=dropdown]', this._outsideClickProxy);
 
             this.isShowing = true;
             this.element.trigger('show.daterangepicker', this);
@@ -626,7 +624,7 @@
             // mouse pointer has entered a range label
             var label = e.target.innerHTML;
             if (label == this.locale.customRangeLabel) {
-                this.updateView();
+                this.updateView();b
             } else {
                 var dates = this.ranges[label];
                 this.container.find('input[name=daterangepicker_start]').val(dates[0].format(this.format));
